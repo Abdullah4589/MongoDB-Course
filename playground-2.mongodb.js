@@ -5,6 +5,6 @@
 use('ecommerce');
 
 // Create a new document in the collection.
-db.getCollection('products').insertOne({
+db.getCollection('sales').insertOne({
 
 });

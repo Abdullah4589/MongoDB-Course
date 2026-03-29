@@ -7,3 +7,15 @@ db.sales.insertMany([
 { _id: 4, item: "Tomato", price: 6, quantity: 8, category: "Vegetable" },
 { _id: 5, item: "Mango", price: 15, quantity: 3, category: "Fruit" }
 ]);
+
+// db.sales.aggregate([
+// { $project: { _id: 0, item: 1, price: 1 } }
+// ]);
+db.sales.aggregate([
+{
+    $group:{
+        _id:"$category",
+        totalSales: { $sum: { $multiply: ["$price", "$quantity"] } },
+    }
+}
+]);
